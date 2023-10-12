@@ -1,35 +1,58 @@
+# to see all the harddisk present 
+* sudo lsblk
+
 ***********
 EBS volumes
 ***********
 
-> Create a volume
+> Create a volume name General purpose ssd gp2 with 10 GiB size with NewDisk 
 
-> Attach it to a EC2 instance
+> Select The NewDisk and Attach it to a EC2 instance webserver
 
-> Connect to the EC2 instance
+> Check weather the Disk is attached or not
 
-> Take control
-
-> Check whether volume is attached
-# lsblk
-
-> Chek if there is any data on volume
-# file -s /dev/xvdf
+> Check if there is any data on volume
+# sudo file -s /dev/xvdf then it will show data it means its row disk
 
 > Create a file system for volume
-# mkfs -t ext4 /dev/xvdf
+# sudo mkfs -t ext4 /dev/xvdf
+# sudo file -s /dev/xvdf it will show filesystem data
 
-# mkdir /fileserver
+# sudo mkdir /fileserver
  
-# mount /dev/xvdf /fileserver
+# sudo mount /dev/xvdf  /fileserver
+
+# cd /fileserver it will show file named lost+found this file showen when the user formated any disk
+
+> Delete the file in /fileserver and Create file named abc
+# sudo rm -rf lost+found
+# ls
+# sudo nano abc with containt New Disk successfully attached
+# ls
+# cat abc
+# cd
+
+> Go in Volumes select the disk action then create snapshot 
+
+> Go in terminal 
+# sudo lsblk
+# sudo umount /dev/xvdf
+
+> Go console Go in volumes Action detach
+# sudo lsblk
+
+> Go in volumes delete NewDisk
 
 # cd /fileserver
-
-> Create some files using nano
-
-> Unmount the volume 
-# umount /dev/xvdf
-
-> Check whether volume is unmounted or not
+# ls
+# cd
+> Go in snapshots select the snapshot Action create volume from snapshot take volume as magnatic disk 10 gib
+> Go in volumes action attach volume
+# sudo lsblk
+# sudo file -s /dev/xvdf filesystem data
+# sudo mount /dev/xvdf /fileserver
 # cd /fileserver
-# ls 
+# ls
+# cat abc
+
+
