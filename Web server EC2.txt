@@ -11,13 +11,20 @@ Installing web server on EC2
 * Take control
 
 * Update the server
-# apt get update
+# sudo apt get update
 
 * Install apache web server
-# apt install apache2
+# sudo apt install apache2
 
-*Edit index.html
-# nano /var/www/html/index.html
+* Check the status of apache2
+# sudo service apache2 status
+
+* Copy Public ip
+
+*Delete index.html & create new
+# cd /var/www/html
+# sudo rm index.html
+# sudo nano index.html with Hi Hello Custom webpage & reload the search page
 
 * Start web server
 # service apache2 start
